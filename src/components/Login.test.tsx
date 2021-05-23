@@ -12,11 +12,11 @@ it('should have a username, a password field and a submit button', () => {
 
 	// act
 	const usernameField = screen.getByLabelText(/username/i)
-	// const usernamePassword = screen.getByLabelText(/password/i)
-	// const submitButton = screen.getByText(/submit/i)
+	const usernamePassword = screen.getByLabelText(/password/i)
+	const submitButton = screen.getByText(/submit/i)
 
 	// assert (via la lib)
 	expect(usernameField).toBeInTheDocument()
-	// expect(usernamePassword).toBeInTheDocument()
-	// expect(submitButton).toBeInTheDocument()
+	expect(usernamePassword).toBeInTheDocument()
+	expect(submitButton).toBeInTheDocument()
 })
