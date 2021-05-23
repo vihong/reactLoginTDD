@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  padding: 20px;
+  width: 60%;
+
+}
+
+label {
+  margin-right: 100%;
+}
+
+
+input{
+  margin-bottom: 20px;
+  border-radius: 5px;
+  height: 25px;
+}
+
+button {
+  background-color: lightblue;
+  font-size: 20px;
+  border-radius: 5px;
+  width: 100px;
+  margin: 20px auto 5px;
+}
