@@ -1,15 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export default function LoginForm() {
+type Props = {
+	envoyer?: any
+}
+
+export default function LoginForm({ envoyer }: Props) {
+	const [
+		values,
+		setValues
+	] = useState({ username: '', password: '' })
+
+	const handleSubmit = (event: any) => {
+		event.preventDefault()
+		envoyer(values)
+	}
+
+	const handleChange = (event: any) => {
+		setValues({ ...values, [event.target.id]: event.target.value })
+	}
+
 	return (
-		<form>
-			<h1>Please log in</h1>
-
+		<form onSubmit={handleSubmit}>
 			<label htmlFor="username">Username:</label>
-			<input id="username" />
+			<input id="username" value={values.username} onChange={handleChange} />
 
 			<label htmlFor="password">Password:</label>
-			<input id="password" />
+			<input id="password" value={values.password} onChange={handleChange} />
 			<button type="submit">Submit</button>
 		</form>
 	)
