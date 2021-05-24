@@ -12,7 +12,7 @@ describe('LoginForm being tested', () => {
 		// act
 		const usernameField = screen.getByLabelText(/username/i)
 		const usernamePassword = screen.getByLabelText(/password/i)
-		const submitButton = screen.getByText(/submit/i)
+		const submitButton = screen.getByRole('button', { name: /submit/i })
 
 		// assert (via la lib)
 		expect(usernameField).toBeInTheDocument()
