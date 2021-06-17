@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import LoginForm from './LoginForm'
+import LoginForm from './LoginForm2'
 
 describe('LoginForm being tested', () => {
 	// step 1 : CAN I SEE IT ?

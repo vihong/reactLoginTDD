@@ -1,32 +1,39 @@
-import React, { useState } from 'react'
+import { useState } from "react"
+import { ICredentials } from "../../App"
 
-type Props = {
-	envoyer?: any
+interface LoginFormProps {
+  submit: (values: ICredentials) => void
 }
 
-export default function LoginForm({ envoyer }: Props) {
-	const [
-		values,
-		setValues
-	] = useState({ username: '', password: '' })
+export default function LoginForm(props: LoginFormProps) {
+  const { submit } = props
 
-	const handleSubmit = (event: any) => {
-		event.preventDefault()
-		envoyer(values)
-	}
+  const [values, setValues] = useState({
+    username: "",
+    password: "",
+  })
 
-	const handleChange = (event: any) => {
-		setValues({ ...values, [event.target.id]: event.target.value })
-	}
+  const handleSubmit = (event: any) => {
+    event.preventDefault()
+    submit(values)
+  }
 
-	return (
-		<form onSubmit={handleSubmit}>
-			<label htmlFor="username">Username:</label>
-			<input id="username" value={values.username} onChange={handleChange} />
+  const handleChange = (event: any) => {
+    setValues({
+      ...values,
+      [event.target.id]: event?.target.value,
+    })
+  }
 
-			<label htmlFor="password">Password:</label>
-			<input id="password" value={values.password} onChange={handleChange} />
-			<button type="submit">Submit</button>
-		</form>
-	)
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="username">Username</label>
+      <input id="username" onChange={handleChange} value={values.username} />
+
+      <label htmlFor="password">Password</label>
+      <input id="password" onChange={handleChange} value={values.password} />
+
+      <button type="submit">Submit</button>
+    </form>
+  )
 }
